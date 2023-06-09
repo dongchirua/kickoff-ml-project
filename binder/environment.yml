@@ -16,7 +16,7 @@ dependencies:
   - pytest
   - pip:
     - click
-    - torch==2.0.1
+    - torch
     - torchvision 
     - torchaudio
     - transformers
@@ -26,3 +26,4 @@ dependencies:
     - torchmetrics
     - accelerate
     - datasets
+    - dvc

@@ -3,7 +3,7 @@ Are you rushing or don't want to install libraries on your machine, click [![Bin
 
 This project includes below libraries
 + Python 3.11
-+ Pytorch 2.0.1
++ Pytorch
 + Transfomer
 + Pytorch-Lightning
 + Wandb
@@ -13,6 +13,7 @@ This project includes below libraries
 + Jupyter Notebook
 + Panel
 + Pytest
++ DVC
 
 ## Install library dependencies
 ```console
