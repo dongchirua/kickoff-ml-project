@@ -1,0 +1,29 @@
+name: ml-venv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - pip
+  - jupyterlab
+  - ipywidgets
+  - scipy
+  - scikit-learn
+  - panel
+  - pytest
+  - pip:
+    - click
+    - torch
+    - torchvision 
+    - torchaudio
+    - transformers
+    - pytorch-lightning
+    - wandb
+    - torch_geometric
+    - torchmetrics
+    - accelerate
+    - datasets
+    - dvc

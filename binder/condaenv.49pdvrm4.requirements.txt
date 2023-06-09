@@ -1,0 +1,12 @@
+click
+torch
+torchvision
+torchaudio
+transformers
+pytorch-lightning
+wandb
+torch_geometric
+torchmetrics
+accelerate
+datasets
+dvc
