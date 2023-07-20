@@ -5,6 +5,11 @@ description = "Kickoff Machine Learning Project"
 authors = ["Bryan Nguyen <dongchirua@live.com>"]
 license = "Apache License"
 readme = "README.md"
+repository = "https://github.com/dongchirua/kickoff-ml-project"
+keywords = ["bootstrap", "machine learning"]
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+]
 
 [tool.poetry.dependencies]
 python = ">3.10,<3.13"
@@ -33,7 +38,7 @@ wandb = "^0.15.5"
 flake8 = "^6.0.0"
 
 [tool.poetry.group.cpu.dependencies]
-torch = "^2.0.1"
+torch = {version = "^2.0.1+cpu", source = "torch"}
 torchvision = "^0.15.2"
 torchaudio = "^2.0.2"
 torch-geometric = "^2.3.1"
@@ -54,6 +59,11 @@ priority = "explicit"
 [[tool.poetry.source]]
 name = "pyg-cu117"
 url = "https://data.pyg.org/whl/torch-2.0.0+cu117.html"
+priority = "explicit"
+
+[[tool.poetry.source]]
+name = "torch"
+url = "https://download.pytorch.org/whl/cpu"
 priority = "explicit"
 
 [build-system]
