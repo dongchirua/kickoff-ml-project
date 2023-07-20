@@ -29,6 +29,9 @@ networkx = {extras = ["default"], version = "^3.1"}
 [tool.poetry.group.cpu]
 optional = true
 
+[tool.poetry.group.cuda117]
+optional = true
+
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"
 jupyterlab = "^4.0.3"
@@ -51,6 +54,20 @@ torch-sparse = {version = "^0.6.17+pt20cpu", source = "pyg"}
 torch-cluster = {version = "^1.6.1+pt20cpu", source = "pyg"}
 torch-spline-conv = {version = "^1.2.2+pt20cpu", source = "pyg"}
 
+[tool.poetry.group.cu117.dependencies]
+torch = {version = "^2.0.1+cpu", source = "torch-cu117"}
+torchvision = "^0.15.2"
+torchaudio = "^2.0.2"
+torch-geometric = "^2.3.1"
+transformers = {extras = ["sentencepiece"], version = "^4.31.0"}
+pytorch-lightning = "^2.0.5"
+torchmetrics = "^1.0.1"
+pyg-lib = {version = "^0.2.0+pt20cpu", source = "pyg-cu117"}
+torch-scatter = {version = "^2.1.1+pt20cpu", source = "pyg-cu117"}
+torch-sparse = {version = "^0.6.17+pt20cpu", source = "pyg-cu117"}
+torch-cluster = {version = "^1.6.1+pt20cpu", source = "ppyg-cu117yg"}
+torch-spline-conv = {version = "^1.2.2+pt20cpu", source = "pyg-cu117"}
+
 [[tool.poetry.source]]
 name = "pyg"
 url = "https://data.pyg.org/whl/torch-2.0.0+cpu.html"
@@ -64,6 +81,11 @@ priority = "explicit"
 [[tool.poetry.source]]
 name = "torch"
 url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
+
+[[tool.poetry.source]]
+name = "torch-cu117"
+url = "https://download.pytorch.org/whl/cu117"
 priority = "explicit"
 
 [build-system]
