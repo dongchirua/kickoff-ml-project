@@ -1,7 +1,7 @@
-# Project Templete to Kickoff Machine Learning Project
+# Project Template to Kickoff Machine Learning Project
 > This template currently supports `Python 3.11` only
 
-Template project aims to promote *versioning library* , *environment isolation* practice and help all ML practitioners quickly start a project. Using this template, practitioners will have below libraries
+Template project aims to promote *versioning library*, *environment isolation* practice and help all ML practitioners quickly start a project. Using this template, practitioners will have below libraries
 + Pytorch
 + Torch-geometric
 + Transfomer
