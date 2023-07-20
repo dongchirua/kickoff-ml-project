@@ -1,8 +1,9 @@
 # Project Templete to Kickoff Machine Learning Project
+> This template currently supports `Python 3.11` only
 
-This project includes below libraries
-+ Python >3.10, <3.13
+Template project aims to promote *versioning library* , *environment isolation* practice and help all ML practitioners quickly start a project. Using this template, practitioners will have below libraries
 + Pytorch
++ Torch-geometric
 + Transfomer
 + Pytorch-Lightning
 + Wandb
@@ -14,13 +15,26 @@ This project includes below libraries
 + Pytest
 + DVC
 
+Those libraries of course aren't enough, but it's easy to update other libraries that support your project. 
+
+> Using `poetry` is highly recommended.
+
 ## Install library dependencies
 ### With `poetry`
+- `pip install poetry`
 - Create, install, activate environment
 ```console
 poetry install --with cpu # cpu
 poetry install --with cu117 # cuda 11.7
 poetry shell
+```
+- Need to update environment after `poetry add a_lib`
+``` console
+poetry lock
+```
+Note: in case you have problem, run 
+``` console
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 ```
 - Need to add source, e.g `pyg-cu117` 
 ```console
@@ -31,16 +45,32 @@ supposing add `pyg_lib`, `torch_scatter`, ... to a group (`cu117`) in this proje
 poetry add -G cu117 pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv --source pyg-cu117
 ```
 ### With `conda`
+- Install Conda instruction: [conda.io](https://docs.conda.io/en/latest/miniconda.html)
 - Create, install, activate environment
 ```console
 conda env create -f environment.yml
 conda activate ml-venv
 ```
-- Need to Update environment
+- Need to update environment
 ```console
 conda env update --file binder/environment.yml --prune
 ```
 - Export environment 
 ```console
 conda env export --from-history -f binder/environment.yml
+```
+
+## Verify
+try this in `ipython`
+```python
+import torch
+from torch_geometric.data import Data
+
+edge_index = torch.tensor([[0, 1],
+                           [1, 0],
+                           [1, 2],
+                           [2, 1]], dtype=torch.long)
+x = torch.tensor([[-1], [0], [1]], dtype=torch.float)
+
+data = Data(x=x, edge_index=edge_index.t().contiguous())
 ```
