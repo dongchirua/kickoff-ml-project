@@ -83,6 +83,7 @@ If you aim to use `poetry`, steps are following
 - edit file `pyproject.toml`
 - select a Python version, then `poetry shell`
 - generate new `poetry.lock` by run `poetry lock`
+
 If you aim to follow `conda`
 - edit file `environment.yml`
 - create a new environment which has version you want
