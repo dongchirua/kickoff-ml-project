@@ -1,5 +1,5 @@
 # Project Templete to Kickoff Machine Learning Project
-> This template currently requires `Python 3.11` installed (`conda`) or be a default python versin (`poetry`)
+> This template currently requires `Python 3.11` installed (`conda`) or be a default Python version (`poetry`)
 
 Template project aims to promote *versioning library*, *environment isolation* practice and help all ML practitioners quickly start a project. Using this template, practitioners will have below libraries
 + Pytorch
@@ -32,7 +32,7 @@ poetry shell
 ``` console
 poetry lock
 ```
-Note: in case you have problem, run 
+Note: in case you have a problem, run 
 ``` console
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 ```
@@ -60,7 +60,7 @@ conda env update --file binder/environment.yml --prune
 conda env export --from-history -f binder/environment.yml
 ```
 
-## After install library, to verify
+## After installing libraries, verify
 try this in `ipython`
 ```python
 import torch
@@ -76,15 +76,15 @@ data = Data(x=x, edge_index=edge_index.t().contiguous())
 ```
 
 ## Q&A
-### My default python is not 3.11, how I can instruct for `poetry` to use Python 3.11
+### My default Python is not 3.11, how I can instruct `poetry` to use Python 3.11
 Use `poetry env use` to select Python version, more details are at more details https://stackoverflow.com/questions/60580113/change-python-version-to-3-x
 ### I don't want to use Python 3.11, how to change configs and make it reproducible 
-If you aim to use `poetry`, steps are following
+If you aim to use `poetry`, the steps are following
 - edit file `pyproject.toml`
 - select a Python version, then `poetry shell`
 - generate new `poetry.lock` by run `poetry lock`
 
 If you aim to follow `conda`
 - edit file `environment.yml`
-- create a new environment which has version you want
+- create a new environment that has the version you want
 - switch to that environment
