@@ -68,7 +68,7 @@ conda env export --from-history -f binder/environment.yml
 - Then install [Nvidia docker container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html), ignore if you aim to use CPU.
 - Edit `.env` locates the same level with `run_docker.sh`, to add environment variables to the prospective docker container
 - There is a file named `run_docker.sh`, allow to execute it by `chmod +x run_docker.sh` and run `run_docker.sh`
-- Enjoy Jupyter lab at localhost:8888 as usual
+- Enjoy Jupyter lab at localhost:8888 as usual. Notebook token is shown after `run_docker.sh` runs successfully
 
 ## After installing libraries, verify
 try this in `ipython`
