@@ -1,5 +1,5 @@
 # Project Templete to Kickoff Machine Learning Project
-> This template currently requires `Python 3.11` installed (`conda`) or be a default Python version (`poetry`)
+> This template currently uses `Python 3.11`, and either `conda`, `docker`, `poetry`, or `micromamba`
 
 Template project aims to promote *versioning library*, *environment isolation* practice and help all ML practitioners quickly start a project. Using this template, practitioners will have below libraries
 + Pytorch
@@ -17,7 +17,7 @@ Template project aims to promote *versioning library*, *environment isolation* p
 
 Those libraries of course aren't enough, but it's easy to update other libraries that support your project. 
 
-> Using `poetry` is highly recommended.
+> Using `poetry` is highly recommended. If you are using `conda` or `micromamba`, make sure that you use package hashes to ensure package selection is reproducible via `conda-lock` or `micromamba`
 
 ## Install library dependencies
 ### With `poetry`
@@ -60,6 +60,16 @@ conda env update --file binder/environment.yml --prune
 conda env export --from-history -f binder/environment.yml
 ```
 
+### With `docker`
+- This tutorial is for those who have NVIDIA GPU (hereafter GPU). For CPU case, this should be similar but need to adjust `Dockerfile` and `run_docker.sh`
+- Note: Docker will use `micromamba` instead of `miniconda`. Replace `conda` with `micromamba` in your usual commands
+- You need to install `docker`
+- Install Nvidia driver (ignore if you don't have GPU)
+- Then install [Nvidia docker container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html), ignore if you aim to use CPU.
+- Edit `.env` locates the same level with `run_docker.sh`, to add environment variables to the prospective docker container
+- There is a file named `run_docker.sh`, allow to execute it by `chmod +x run_docker.sh` and run `run_docker.sh`
+- Enjoy Jupyter lab at localhost:8888 as usual
+
 ## After installing libraries, verify
 try this in `ipython`
 ```python
@@ -88,3 +98,6 @@ If you aim to follow `conda`
 - edit file `environment.yml`
 - create a new environment that has the version you want
 - switch to that environment
+
+## Current limitation
+- `torch_geometric` with CPU version in `poetry` has a problem. I created a discussion at https://github.com/pyg-team/pytorch_geometric/discussions/7788
