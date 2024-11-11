@@ -1,29 +1,41 @@
 name: ml-venv
+channel_priority: disabled
 channels:
+  - pytorch
+  - nvidia
+  - pyg
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.11
-  - numpy
-  - pandas
-  - matplotlib
+  - python=3.12
   - pip
+  - blas
+  - networkx
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - matplotlib
   - jupyterlab
   - ipywidgets
-  - scipy
-  - scikit-learn
   - panel
   - pytest
+  - pytorch::pytorch=2.4.1
+  - pytorch::pytorch-cuda=12.4
+  - pytorch::torchvision=0.19.1
+  - pytorch::torchaudio=2.4.1
+  - pyg=2.6.1
+  - transformers=4.46.0
+  - sentencepiece
+  - lightning
+  - click
+  - wandb
+  - dvc
+  - torchmetrics
+  - evaluate
   - pip:
-    - click
-    - torch
-    - torchvision 
-    - torchaudio
-    - transformers
-    - pytorch-lightning
-    - wandb
-    - torch_geometric
-    - torchmetrics
-    - accelerate
-    - datasets
-    - dvc
+    - pyg_lib==0.4.0+pt24cu124
+    - torch_scatter==2.1.2+pt24cu124
+    - torch_sparse==0.6.18+pt24cu124
+    - torch_cluster==1.6.3+pt24cu124
+    - torch_spline_conv==1.2.2+pt24cu124
+    - -f https://data.pyg.org/whl/torch-2.4.0+cu124.html

@@ -1,5 +1,5 @@
-FROM mambaorg/micromamba:1.5.1 as micromamba
-FROM nvcr.io/nvidia/pytorch:23.09-py3
+FROM mambaorg/micromamba:2.0 as micromamba
+FROM nvcr.io/nvidia/pytorch:24.10-py3
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV ENV_NAME=ml-venv
@@ -30,10 +30,11 @@ USER $MAMBA_USER
 SHELL ["/usr/local/bin/_dockerfile_shell.sh"]
 ENTRYPOINT ["/usr/local/bin/_entrypoint.sh"]
 
-RUN micromamba install -y -n base -c conda-forge python=3.11 \
+RUN micromamba install -y -n base -c conda-forge python=3.12 \
     && micromamba clean --all --yes
 
 WORKDIR /tmp
+
 # Install any needed packages specified in environment.yml
 COPY environment.yml environment.yml
 RUN micromamba create -n $ENV_NAME -f environment.yml -y \

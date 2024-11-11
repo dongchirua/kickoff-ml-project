@@ -1,4 +1,5 @@
-channel_priority: strict
 channels:
+  - pytorch
+  - nvidia
+  - pyg
   - conda-forge
-  - defaults
