@@ -6,7 +6,7 @@ image_name=${repo_name}
 container_name=${repo_name}-${branch}
 
 docker rm -f ${container_name}
-docker build --build-arg MAMBA_USER_ID=$(id -u) --build-arg MAMBA_USER_GID=$(id -g)  -t ${image_name} .
+docker build --build-arg MAMBA_USER_ID=$(id -u) --build-arg MAMBA_USER_GID=$(id -g) --build-arg SSH_KEY="$(cat ~/.ssh/id_rsa)"  -t ${image_name} .
 docker run --gpus all \
     --env-file .env \
     -it -d -v $PWD:/workspace \
