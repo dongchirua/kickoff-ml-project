@@ -1,6 +1,8 @@
 FROM mambaorg/micromamba:2.0 as micromamba
 FROM nvcr.io/nvidia/pytorch:24.10-py3
 
+ARG SSH_KEY
+
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV ENV_NAME=ml-venv
 ENV MAMBA_USER=$ENV_NAME
@@ -26,6 +28,12 @@ RUN apt update && apt install -y git tmux nvtop htop \
     && apt clean autoremove -y
 
 USER $MAMBA_USER
+
+RUN mkdir -p ~/.ssh && \
+    chmod 0700 ~/.ssh && \
+    ssh-keyscan github.com > ~/.ssh/known_hosts && \
+    echo "${SSH_KEY}" > ~/.ssh/id_rsa && \
+    chmod 600 ~/.ssh/id_rsa
 
 SHELL ["/usr/local/bin/_dockerfile_shell.sh"]
 ENTRYPOINT ["/usr/local/bin/_entrypoint.sh"]
