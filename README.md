@@ -20,7 +20,7 @@ Those libraries of course aren't enough, but it's easy to update other libraries
 > Using `poetry` is highly recommended. If you are using `conda` or `micromamba`, make sure that you use package hashes to ensure package selection is reproducible via `conda-lock`.
 
 ## Isolate Environment with Docker
-- This tutorial is for those who have NVIDIA GPU (hereafter GPU), and you must have `docker`
+- This tutorial is for those who have NVIDIA GPU (hereafter GPU), and you must have `docker`. Note that, this approach will include your private ssh key to built image. DO NOT push built image without changing Dockerfile.
 - Install Nvidia driver
 - Then install [Nvidia docker container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html).
 
